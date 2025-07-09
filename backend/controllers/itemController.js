@@ -21,7 +21,7 @@ exports.getItems = async (req, res) => {
 
 exports.deleteItems = async (req, res) => {
   try {
-    const deleted = await Item.findOneAndDelete({ name: req.body.name });
+    const deleted = await Item.findByIdAndDelete(req.params.id);
     if (!deleted) {
       return res.status(404).json({ error: 'No se encontró el item' });
     }

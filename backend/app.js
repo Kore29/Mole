@@ -1,13 +1,12 @@
 // MAIN
 require('dotenv').config();
-
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 app.use(express.json());
-
-const ItemRoutes = require('./routes/itemRoutes');
 
 // MONGODB
 const mongoUrl = process.env.MONGO_URL;
@@ -19,10 +18,11 @@ mongoose.connect(mongoUrl, {
 .catch(err => console.error('Error conectando a MongoDB:', err));
 
 // ROUTES
+const ItemRoutes = require('./routes/itemRoutes');
 app.use('/items', ItemRoutes);
 
 // CONNECTION
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT_BACKEND;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
