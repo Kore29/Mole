@@ -7,10 +7,45 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  margin: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.items {
+  flex: 3;
+  background-color: antiquewhite;
+}
+
+.item-form {
+  padding: 1rem;
+  flex: 1;
+  background-color: #ccc;
+}
+
 .item-card {
   border: 1px solid #ccc;
   border-radius: 8px;
+
   padding: 1rem;
+  margin: 1rem;
+
   margin-bottom: 1rem;
   max-width: 300px;
+}
+
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; 
+  padding: 16px;
+}
+
+.form-group {
+  display: block;
+  margin-bottom: 12px;
 }

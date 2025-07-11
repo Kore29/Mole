@@ -12,11 +12,13 @@ function ItemList({ refreshTrigger }) {
   if (items.length === 0) return <p>No hay productos.</p>;
 
   return (
-    <div>
-      {items.map(item => (
-        <ItemCard key={item._id} item={item} />
-      ))}
-    </div>
+    <>
+      <div className='item-list'>
+        {items.map(item => (
+          <ItemCard key={item._id} item={item} />
+        ))}
+      </div>
+    </>
   );
 }
 
